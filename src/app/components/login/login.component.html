@@ -1,0 +1,55 @@
+<div class="form-container mat-elevation-z5">
+    <h1>Login</h1>
+    <form [formGroup]="loginForm">
+        <mat-form-field>
+            <mat-label>Email address</mat-label>
+            <input matInput placeholder="Email address"
+                formControlName="email" />
+            <mat-error *ngIf="email?.errors?.['required']">
+                Email address is required
+            </mat-error>
+            <mat-error *ngIf="email?.errors?.['email']">
+                Please enter a valid email address
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input matInput type="password" placeholder="Password"
+                formControlName="password" />
+            <mat-error *ngIf="password?.errors?.['required']">
+                Password is required
+            </mat-error>
+        </mat-form-field>
+        <div class="center margin-top">
+            <button (click)="submit()" type="submit" mat-raised-button
+                color="primary">Login</button>
+        </div>
+        <br>
+        <span class="center margin-top">Need Account? <a
+                class="sign-up-link"
+                style="display: flex; align-items: center; cursor: pointer; text-decoration: none;"
+                routerLink="/signup">signup</a></span>
+
+        &nbsp;
+
+        <span style="display: flex; justify-content: center;">
+            <a (click)="signInWithGoogle()"
+                style="display: flex; align-items: center; cursor: pointer; text-decoration: none; color: inherit;">
+                <i class="bi bi-google" style="margin-right: 8px;"></i>
+                Sign with Google
+            </a>
+        </span>
+
+        <br>
+        <div>
+            <a
+                style="cursor: pointer; text-decoration: none; display: flex; justify-content: center;"
+                routerLink="/forgot_password">
+                <i class="bi bi-person-lock" style="margin-right: 8px;"></i>
+                Forgot Password
+            </a>
+        </div>
+
+    </form>
+
+</div>
